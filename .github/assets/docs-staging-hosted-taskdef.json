@@ -50,7 +50,7 @@
 		"dockerLabels": null,
 		"systemControls": null,
 		"privileged": null,
-		"name": "docs-staging",
+		"name": "docs-staging-hosted",
 		"repositoryCredentials": {
 			"credentialsParameter": ""
 		}
@@ -120,9 +120,9 @@
 	"networkMode": "awsvpc",
 	"memory": "512",
 	"cpu": "256",
-	"executionRoleArn": "arn:aws:iam::070528468658:role/docs-staging-TaskRole",
-	"family": "docs-staging-taskdefinition",
-	"taskRoleArn": "arn:aws:iam::070528468658:role/docs-staging-TaskRole",
+	"executionRoleArn": "arn:aws:iam::070528468658:role/docs-staging-hosted-TaskRole",
+	"family": "docs-staging-hosted-taskdefinition",
+	"taskRoleArn": "arn:aws:iam::070528468658:role/docs-staging-hosted-TaskRole",
 	"runtimePlatform": {
 		"operatingSystemFamily": "LINUX"
 	},
@@ -132,7 +132,7 @@
 		},
 		{
 			"key": "ParentService",
-			"value": "docs-staging"
+			"value": "docs-staging-hosted"
 		},
 		{
 			"key": "Environment",
@@ -140,7 +140,7 @@
 		},
 		{
 			"key": "Service",
-			"value": "docs-staging.polygon.technology"
+			"value": "docs-staging-hosted.polygon.technology"
 		},
 		{
 			"key": "Host",
@@ -148,7 +148,7 @@
 		},
 		{
 			"key": "IAC",
-			"value": "terraform-workspace-aws-test-applications-eu-west-1-apps-docs-staging-polygon-technology"
+			"value": "terraform-workspace-aws-test-applications-eu-west-1-apps-docs-staging-hosted-polygon-technology"
 		},
 		{
 			"key": "Team",
@@ -156,7 +156,7 @@
 		},
 		{
 			"key": "Name",
-			"value": "docs-staging-taskdefinition"
+			"value": "docs-staging-hosted-taskdefinition"
 		}
 	]
 }

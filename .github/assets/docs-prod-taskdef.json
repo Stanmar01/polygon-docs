@@ -50,7 +50,7 @@
 		"dockerLabels": null,
 		"systemControls": null,
 		"privileged": null,
-		"name": "docs-staging",
+		"name": "docs-prod",
 		"repositoryCredentials": {
 			"credentialsParameter": ""
 		}
@@ -92,11 +92,11 @@
 		"secrets": [
 			{
 				"name": "SSM_CONFIG",
-				"valueFrom": "arn:aws:ssm:eu-west-1:070528468658:parameter/CORALOGIX/CX_OTEL/config.yaml"
+				"valueFrom": "arn:aws:ssm:eu-west-1:042947190491:parameter/CORALOGIX/CX_OTEL/config.yaml"
 			},
 			{
 				"name": "PRIVATE_KEY",
-				"valueFrom": "arn:aws:ssm:eu-west-1:070528468658:parameter/CORALOGIX/PRIVATE_KEY"
+				"valueFrom": "arn:aws:ssm:eu-west-1:042947190491:parameter/CORALOGIX/PRIVATE_KEY"
 			}
 		],
 		"user": "0",
@@ -118,11 +118,11 @@
 	}],
 	"volumes": [],
 	"networkMode": "awsvpc",
-	"memory": "512",
-	"cpu": "256",
-	"executionRoleArn": "arn:aws:iam::070528468658:role/docs-staging-TaskRole",
-	"family": "docs-staging-taskdefinition",
-	"taskRoleArn": "arn:aws:iam::070528468658:role/docs-staging-TaskRole",
+	"memory": "1024",
+	"cpu": "512",
+	"executionRoleArn": "arn:aws:iam::042947190491:role/docs-prod-TaskRole",
+	"family": "docs-prod-taskdefinition",
+	"taskRoleArn": "arn:aws:iam::042947190491:role/docs-prod-TaskRole",
 	"runtimePlatform": {
 		"operatingSystemFamily": "LINUX"
 	},
@@ -132,15 +132,15 @@
 		},
 		{
 			"key": "ParentService",
-			"value": "docs-staging"
+			"value": "docs-prod"
 		},
 		{
 			"key": "Environment",
-			"value": "staging"
+			"value": "prod"
 		},
 		{
 			"key": "Service",
-			"value": "docs-staging.polygon.technology"
+			"value": "docs-prod.polygon.technology"
 		},
 		{
 			"key": "Host",
@@ -148,7 +148,7 @@
 		},
 		{
 			"key": "IAC",
-			"value": "terraform-workspace-aws-test-applications-eu-west-1-apps-docs-staging-polygon-technology"
+			"value": "terraform-workspace-aws-prod-applications-eu-west-1-apps-docs-prod-polygon-technology"
 		},
 		{
 			"key": "Team",
@@ -156,7 +156,7 @@
 		},
 		{
 			"key": "Name",
-			"value": "docs-staging-taskdefinition"
+			"value": "docs-prod-taskdefinition"
 		}
 	]
 }
