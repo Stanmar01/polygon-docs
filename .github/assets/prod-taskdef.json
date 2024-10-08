@@ -6,12 +6,6 @@
 	"containerDefinitions": [{
 		"dnsSearchDomains": null,
 		"environmentFiles": [],
-		"logConfiguration": {
-                "logDriver": "awsfirelens",
-                "options": {
-                    "Name": "OpenTelemetry"
-                }
-            },
 		"entryPoint": null,
 		"portMappings": [{
 			"hostPort": 80,
@@ -51,67 +45,6 @@
 		"systemControls": null,
 		"privileged": null,
 		"name": "docs",
-		"repositoryCredentials": {
-			"credentialsParameter": ""
-		}
-	},
-	{
-		"essential": false,
-		"name": "otel-collector",
-		"image": "otel/opentelemetry-collector-contrib",
-		"firelensConfiguration": {
-			"type": "fluentbit",
-			"options": {}
-		},
-		"portMappings": [
-			{
-				"name": "otel-collector-4317-tcp",
-				"containerPort": 4317,
-				"hostPort": 4317,
-				"protocol": "tcp",
-				"appProtocol": "grpc"
-			},
-			{
-				"name": "otel-collector-4318-tcp",
-				"containerPort": 4318,
-				"hostPort": 4318,
-				"protocol": "tcp",
-				"appProtocol": "grpc"
-			}
-		],
-		"command": [
-			"--config",
-			"env:SSM_CONFIG"
-		],
-		"environment": [
-			{
-				"name": "CORALOGIX_DOMAIN",
-				"value": "eu2.coralogix.com"
-			}
-		],
-		"secrets": [
-			{
-				"name": "SSM_CONFIG",
-				"valueFrom": "arn:aws:ssm:eu-west-1:042947190491:parameter/CORALOGIX/CX_OTEL/config.yaml"
-			},
-			{
-				"name": "PRIVATE_KEY",
-				"valueFrom": "arn:aws:ssm:eu-west-1:042947190491:parameter/CORALOGIX/PRIVATE_KEY"
-			}
-		],
-		"user": "0",
-		"memoryReservation": 50,
-		"resourceRequirements": null,
-		"environmentFiles": [],
-		"mountPoints": null,
-		"volumesFrom": null,
-		"hostname": null,
-		"workingDirectory": null,
-		"extraHosts": null,
-		"logConfiguration": null,
-		"ulimits": null,
-		"dockerLabels": null,
-		"dependsOn": null,
 		"repositoryCredentials": {
 			"credentialsParameter": ""
 		}
